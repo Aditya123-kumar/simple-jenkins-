@@ -3,7 +3,7 @@ pipeline {
      stages {
         stage("Build") {
             steps {
-                bat 'docker compose down --remove-orphans''
+                bat 'docker compose down --remove-orphans'
                 bat 'docker container prune --force'
                 bat 'docker image prune --force'
             }

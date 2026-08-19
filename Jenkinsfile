@@ -3,14 +3,14 @@ pipeline {
      stages {
         stage("Build") {
             steps {
-                bat "sudo docker compose down --remove-orphans"
-                bat "sudo docker container prune --force"
-                bat "sudo docker image prune --force"
+                bat 'docker compose down --remove-orphans''
+                bat 'docker container prune --force'
+                bat 'docker image prune --force'
             }
         }
         stage("Deploy") {
             steps {
-                bat "sudo docker compose -f docker-compose.yml up --build --no-deps --renew-anon-volumes --detach --remove-orphans"
+                bat 'docker compose -f docker-compose.yml up --build --no-deps --renew-anon-volumes --detach --remove-orphans'
             }
         }
     }
